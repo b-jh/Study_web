@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/vue.js"></script>
+	<style>
+		.classA{
+			color: red;
+		}
+		.classB{
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>v-bind</h1>
+	<div id="app">
+		<p><img v-bind:src="imgSrc" alt="" :width="width"></p>
+		<hr>
+		<p :class="className">1、绑定class</p>
+		<p :class="{classA:classOr}">2、绑定class中的判断</p>
+		<p :class="[classA,classB]">3、绑定class中的数字</p>
+		<p :class="[classOr?classA:classB]">4、绑定class中使用三元表达式</p>
+		<p :class="[{classA:classOr},classB]">5、绑定class中使用判断组合</p>
+		
+		<hr>
+		<p :style="{fontSize:font,color:red}">6、style绑定</p>
+		<p :style="sytArry">7、style绑定json语句</p>
+	</div>
+		<script>
+		var aaaa = new Vue({
+			el:'#app',
+			data:{
+				message:'hello vue!',
+				imgSrc:"https://csdnimg.cn/release/edu/d70a2ed/resource/images/default_course.jpg",
+				width:"150",
+				className:"classA",
+				classOr:false,
+				classA:"classA",
+				classB:"classB",
+				font:"25px",
+				red:"red",
+				sytArry:{
+					fontSize:"50px",
+					color:"green"
+				}
+				
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h1>v-if ;v-else;v-show</h1>
+	<hr>
+	<p>v-if判断是否价值，v-show调整css display</p>
+	<div id="app">
+		<div v-if="ok">加载</div>
+		<div v-else>不加载</div>
+		<div v-show="ok2">显示出来!</div>
+	</div>
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{
+				ok:false,
+				ok2:true
+			}
+		})
+	</script>
+</body>
+</html>

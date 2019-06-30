@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h1>v-on</h1>
+	<div id="app">
+		<p >{{a}}</p>
+		<p><button v-on:click="jia" >+1</button></p>
+		<p> <button @click="jian">-1</button></p>
+		<!-- <p><button @click="jia" >+1</button></p> -->
+		<hr>
+		<p >{{a}}</p>
+		<p><input type="text" @keyup.enter='onEnter' v-model="b"></p>
+		<!-- enter键位是13 -->
+		<p><input type="text" @keyup.13='onEnter' v-model="b"></p>
+	</div>
+	<script>
+		var aaaa = new Vue({
+			el:'#app',
+			data:{
+				a:10,
+				b:1
+			},
+			methods:{
+				jia:function () {
+					this.a ++
+				},
+				jian:function(){
+					this.a --
+				},
+				onEnter:function(){
+					this.a=this.a + parseInt(this.b)
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>

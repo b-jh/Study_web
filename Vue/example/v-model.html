@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h1>v-model</h1>
+	<div id="app">
+		<p>原始值：{{message}}</p>
+		<p >v-model:<input type="text" v-model="message"></p>
+		<p >v-model.lazy:<input type="text" v-model.lazy="message"></p>
+		<p >v-model.number:<input type="text" v-model.number="message"></p>
+		<p >v-model.trim(去空格):<input type="text" v-model.trim="message"></p>
+		<hr>
+		<h3>文本区域</h3>
+		<textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+		<hr>
+		<h3>单选</h3>
+		<input type="checkbox" id="dfsd" v-model="xz">
+		<label for="dfsd">{{xz}}</label>
+		<p>{{xz}}</p>
+		<hr>
+		<h3>多个单选框选中一个数组</h3>
+	
+		<input type="checkbox" id="name1" value="张胜男" v-model="xyz">
+		<label for="name1">张胜男</label>
+		<input type="checkbox" id="name2" value="张三" v-model="xyz">
+		<label for="name2">张三</label>
+		<input type="checkbox" id="name3" value="李四" v-model="xyz">
+		<label for="name3">李四</label>
+		<input type="checkbox" id="name4" value="赵武" v-model="xyz">
+		<label for="name4">赵武</label>
+		<p>{{xyz}}</p>
+		<hr>
+		<h3>单选按钮</h3>
+		<input type="radio" id="name1" value="男" v-model="xyzm">
+		<label for="name1">男</label>
+		<input type="radio" id="name2" value="女" v-model="xyzm">
+		<label for="name2">女</label>
+		<p>{{xyzm}}</p>
+		<hr>
+		<h3>选择列表</h3>
+		<p>
+			<select name=""  v-model="sdfs">
+				<option >A</option>
+				<option >B</option>
+				<option >C</option>
+			</select>
+			<p>{{sdfs}}</p>
+			<p>多选</p>
+			<select name=""  v-model="sdfsd" multiple>
+				<option >A</option>
+				<option >B</option>
+				<option >C</option>
+			</select>
+			<p>{{sdfsd}}</p>
+			<p>赋值多选</p>
+			<select name=""   v-model="sdfsdsd" >
+				<option v-for="(name,index) in names">{{name}}{{index}}</option>
+				
+			</select>
+			<p>{{sdfsdsd}}</p>
+		</p>
+		
+	</div>
+
+	<script>
+		var aaaa = new Vue({
+			el:'#app',
+			data:{
+				message:'hello vue!',
+				xz:true,
+				xyz:[],
+				xyzm:"",
+				sdfs:"",
+				sdfsd:[],
+				names:["历史","历史个","地方"],
+				sdfsdsd:""
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+			<h1>深入理解对象</h1>
+			<h2>object.defineProperty</h2>
+		<ul>
+			<li>enumerable:ture 表示能否通过for ..in循环返回属性</li>
+			<li>writable:ture 表示能否修改属性的值</li>
+			<li>configurable:ture 表示能否通过delete删除属性从而重新定义属性</li>
+			<li>value:ture 更改属性名称</li>
+			<li>git:f 读取时候调用这个属性</li>
+			<li>set:f 写入的时候调用这个属性</li>
+			<h2>object.defineProperties()</h2
+			<h2>object.getOwnPropertyDescriptor()</h2>
+			
+		</ul>
+	</body>
+	<script type="text/javascript">
+		// 1、工厂模式
+		function creatFactory(name){
+			var obj=new Object()
+			obj.name=name;
+			return obj
+		}
+		var a = creatFactory("bjh")
+		console.log(a)
+		
+		// 2、构造函数
+		var creatFactory = function(name){
+			this.name=name;
+		}
+		var va =new creatFactory("bjh111")
+		console.log(va)
+		
+		// 3.原型模式
+		function creatFactory(name){
+			creatFactory.prototype.name=name
+		}
+		
+		var va2 = new creatFactory("gfg")
+		console.log(va2)
+		
+		// 上面属于接口继承
+		// 实现继承
+		a = {};
+		b=a
+		console.log(creatFactory(b))
+		
+		// 对象中某些内容不让更改
+		var aa={
+			_name:"bjh", //用get 方法前面就要用_
+			age:37
+		}
+		
+		Object.defineProperty(aa,"name",{
+			//writable:true,//不能个get 共存
+			enumerable:false,
+			configurable:true,//writable为turue,configurable:false才有意义
+			// value:"gds",
+			get:function(){
+				console.log("读取名字")  //设置get,就不能用value属性设置
+				return "丰盛的"+this._name
+			},
+			set:function(){
+				console.log("修改名字")  //设置get,就不能用value属性设置
+				return "丰盛的"+this._name
+			}
+		})
+		
+		Object.defineProperties(aa,{
+			name:{
+				enumerable:false,
+				configurable:true,//writable为turue,configurable:false才有意义
+				// value:"gds",
+				get:function(){
+					console.log("读取名字")  //设置get,就不能用value属性设置
+					return "丰盛的"+this._name
+				},
+				set:function(){
+					console.log("修改名字")  //设置get,就不能用value属性设置
+					return "丰盛的"+this._name
+				},
+			},
+			age:{
+				enumerable:false,
+				configurable:true,//writable为turue,configurable:false才有意义
+				// value:"gds",
+				get:function(){
+					console.log("读取名字")  //设置get,就不能用value属性设置
+					return "丰盛的"+this._name
+				},
+				set:function(){
+					console.log("修改年龄")  //设置get,就不能用value属性设置
+					return "丰盛的"+this._name
+				}
+			}
+		})
+		
+		aa._name="ddd"
+		console.log(aa)
+		
+		for(cc in aa){
+			console.log(cc)
+		}
+		
+		console.log("用get:"+aa.name)
+		aa.name="ghg"
+		
+		aa.age=67
+		
+		var ms = Object.getOwnPropertyDescriptor(aa,"name")
+		console.log(ms)
+	</script>
+</html>

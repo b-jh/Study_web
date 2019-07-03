@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>作用域</h1>
+		<ul>
+			<li>内存终端变量和对象</li>
+			<li>全局作用链和局部作用链</li>
+			<li>内存处理</li>
+			<li>上下文环境</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var a = window.location;
+		console.log(a.host)
+		// 方法
+		function add(x){ //省略了var x
+			x++
+			return
+		}
+		var x=1;
+		var b = add(x);
+		console.log(x)
+		
+		// 传入对象
+		var setGirlFriend = function(obj){
+			obj.name="linzhilign"
+		}
+		var girlFriend ={}
+		setGirlFriend(girlFriend)
+		console.log(girlFriend.name)
+		//全局作用域
+		var aa=0;
+		console.log(window)//全局作用域
+		console.log(window.aa)
+		
+		
+		//
+		 function getUrl(){
+			 var k="?k=seach"
+			 with(location){
+				 var url=href + k
+			 }
+			 return url;
+		 }
+		 console.log(getUrl());
+		 
+		 // 全局变量取出来,window 是最顶层的
+		 var aaaa={"name":"bjh"}
+		 function getAaa(){
+			 with(window){
+				 var bbb = aaaa;
+			 }
+			 return bbb;
+		 }
+		 console.log(getAaa());
+		 
+		 // 跳转
+		 // location.href="http://www.baidu.com"
+		 
+		 // 这种方式不好,把a都暴露出来了.
+		 if(true){
+			 var bbb=1
+		 }
+		 console.log(bbb)
+		 // 推荐这种方法
+		 function tet(b){
+			 if (b==true){
+				 var ccc=2;
+			 }
+		 }
+		 console.log(tet(true));
+		 
+		 
+		 // eval,拼接函数名
+		 var a ="console.log('hello')"
+		 eval(a);
+		 
+		 x="hell"
+		 y="o"
+		 var mmm ="var "+ x + y +"=10" 
+		 eval(mmm)
+		 console.log(hello)
+	
+
+		
+	</script>
+	
+</html>

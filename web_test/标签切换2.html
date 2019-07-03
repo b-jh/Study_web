@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实践题 - 选项卡</title>
+		<style type="text/css">
+			/* CSS样式制作 */
+			div {
+				height: 220px;
+				position: absolute;
+				z-index: -999;
+				width: 280px;
+				top: 47px;
+				border: 2px solid darkred;
+				left: 43px;
+				display: none;
+			}
+
+			li {
+				width: 80px;
+				height: 29px;
+				text-align: center;
+				line-height: 30px;
+				border: 1px solid #ccc;
+				float: left;
+				margin-left: 6px;
+				list-style: none;
+				cursor: pointer;
+			}
+
+			.a {
+				border-bottom: 5px solid white;
+				border-top: 2px solid darkred;
+			}
+		</style>
+
+	</head>
+	<body>
+		<!-- HTML页面布局 -->
+
+		<ul>
+			<li class="a">房产</li>
+			<li>家居</li>
+			<li>二手房</li>
+		</ul>
+
+		<div style="display: block;">
+			<p>275万购昌平邻铁三居 总价20万买一居</p>
+
+		</div>
+		<div>
+			<p>40平出租屋大改造 美少女的混搭小窝</p>
+
+		</div>
+		<div>
+			<p>通州豪华3居260万 二环稀缺2居250w甩</p>
+
+		</div>
+
+
+	</body>
+	<script type="text/javascript">
+		// JS实现选项卡切换
+		window.onload = function() {
+			var li = document.querySelectorAll("li");
+			var div = document.querySelectorAll("div");
+			var last = li[0]; //唯一不一样的就是这儿，我刚也说了，这个地方记录每次点击的下标
+			for (var i = 0; i < li.length; i++) {
+				li[i].index = i;
+				li[i].onclick = function() {
+					last.className = "";
+					div[last.index].style.display = "none";
+					this.className = "a";
+					div[this.index].style.display = "block";
+					last = this; //这个必须放到最后，等待全部执行完毕，回掉，把当前的index的值传入last
+				}
+			}
+		}
+	</script>
+
+</html>

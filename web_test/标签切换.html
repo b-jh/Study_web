@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实践题 - 选项卡</title>
+		<style type="text/css">
+			/* CSS样式制作 */
+			div {
+				height: 220px;
+				position: absolute;
+				z-index: -999;
+				width: 280px;
+				top: 47px;
+				border: 2px solid darkred;
+				left: 43px;
+				display: none;
+			}
+
+			li {
+				width: 80px;
+				height: 29px;
+				text-align: center;
+				line-height: 30px;
+				border: 1px solid #ccc;
+				float: left;
+				margin-left: 6px;
+				list-style: none;
+				cursor: pointer;
+			}
+
+			.a {
+				border-bottom: 5px solid white;
+				border-top: 2px solid darkred;
+			}
+		</style>
+
+	</head>
+	<body>
+		<!-- HTML页面布局 -->
+
+		<ul>
+			<li class="a">房产</li>
+			<li>家居</li>
+			<li>二手房</li>
+		</ul>
+
+		<div style="display: block;">
+			<p>275万购昌平邻铁三居 总价20万买一居</p>
+			
+		</div>
+		<div>
+			<p>40平出租屋大改造 美少女的混搭小窝</p>
+			
+		</div>
+		<div>
+			<p>通州豪华3居260万 二环稀缺2居250w甩</p>
+			
+		</div>
+
+
+	</body>
+	<script type="text/javascript">
+		// JS实现选项卡切换 
+		window.onload = function() {
+			var li = document.querySelectorAll("li"); //querySelectorAll这个标签的作用是选取页面所有的li标签
+			var div = document.querySelectorAll("div");
+			for (var i = 0; i < li.length; i++) {
+				li[i].index = i; //给每个按钮添加一个自定义属性，存的是他们对应的索引值
+				li[i].onclick = function() {
+					for (var i = 0; i < li.length; i++) {
+						li[i].className = " ";
+						div[i].style.display = "none";
+					};
+					this.className = "a";
+					div[this.index].style.display = "block"; //把当前点击li的下表传入div中，使其下标相同，因为他们都默认输出的是 0 1 2  所以可以对应输出
+				};
+			};
+		};
+	</script>
+
+
+</html>

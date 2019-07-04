@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>原型对象与原型链</h1>
+		<ul>
+			<li>原型链深度理解</li>
+			<li>this深度理解</li>
+			<li>关于function的变量提升</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		function a (){
+		}
+		console.log(a.prototype) //调取原型
+		
+		a={}
+		console.log(a.__proto__)  //调取原型
+		
+		// this 深入理解
+		function bb(){
+			 a=1    //定义全局a
+			console.log(this.a);   //取全局a,取上一层
+		}
+		bb()
+	</script>
+</html>

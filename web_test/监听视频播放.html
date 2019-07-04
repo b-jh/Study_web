@@ -4,25 +4,96 @@
 		<meta charset="utf-8">
 		<title></title>
 	</head>
-	<body>
-		<video id="da_333" onplay="fun(da_333)" src="//player.alicdn.com/video/aliyunmedia.mp4" controls="controls">
-您的浏览器不支持 video 标签。
-</video>
-<button id="rrr" >dsd</button>
-	</body>
-	<script type="text/javascript">
-	
-		var my_video =document.getElementById("aaa")
-		function(){
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	<style>
+		.video_box{
+			position: relative;
+			width:500px ;
 			
 		}
-		my_video.addEventListener("play",function(){
-			alert("111")
-		 if(1){
-			  my_video.pause();
-		 }
-		
-    })
+			.video_box video{
+		width:100%
+		}
+		.video_box span{
+			position: absolute;
+			background: red;
+		}
+		.video_box span:first-of-type{
+			bottom: 75px;
+			left: 10px;
+		}
+			.video_box span:last-of-type{
+			bottom: 75px;
+			right: 10px;
+		}
+		.blay_btn_box{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;			
+		}
+		#play_btn{
+			/* position: absolute; */
+			margin: 0 auto;
+			display: block;
+			height: 100px;
+			width: 100px;
+			
+		}
+	</style>
+	<body>
+		<div class="video_box">
+			<video id="da_333" src="//player.alicdn.com/video/aliyunmedia.mp4" >
+				您的浏览器不支持 video 标签。
+			</video>
+			<span class="video_time">40秒</span>
+			<span class="video_price">$39</span>
+			<div class="blay_btn_box"><button id="play_btn">播放</button></div>
+		</div>
 
-</script>
+	
+	</body>
+	<script type="text/javascript">
+		a = 1; //购买
+
+		if (a == 1) {
+			$(".video_price").html("已购")
+		}
+		var my_video = document.getElementById("da_333")
+		// 播放事件
+		
+		$(".blay_btn_box").click(function(){
+			if(my_video.paused){
+				my_video.play();
+				$("#play_btn").hide()
+			}else{
+					my_video.pause();
+				$("#play_btn").show()
+			}
+						
+		})
+		
+		my_video.addEventListener("play", function() {
+
+			$(".ss").hide();
+			if (a == 0) {
+
+				my_video.pause();
+				alert("您需要购买视频")
+			}
+			$(".video_time").hide();
+			$(".video_price").hide();
+		})
+		// 播放完
+			my_video.addEventListener("ended", function() {
+		
+			$(".video_time").show();
+			$(".video_price").show();
+		
+		})
+	</script>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>粗聊DOM</title>
+	</head>
+	<body>
+		<h1>粗聊DOM</h1>
+		<h3 id="bb">DOM(Document Object MOdel)是针对HTML和XML文档的一个API(应用程序编程接口)</h3>
+		<ul id="box">
+			<li class="title">获取节点的方法</li>
+			<li >节点类型html.nodeType</li>
+			<li id="ewe">操作节点</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		console.log(document.head)
+		console.log(document.nodeType)
+		// 元素名称找到对象
+		a=document.getElementsByTagName("title")[0].innerHTML="测完"
+		console.log(a)
+		// id找
+		var bbb=document.getElementById("bb")
+		console.log(bbb.innerHTML)
+		
+		console.log(bbb.nodeType)
+		// class
+		var title=document.getElementsByClassName("title")
+		console.log(title[0].innerHTML)
+		
+		// 增加节点
+		var ul=document.getElementById("box")
+		var li = document.createElement("li")
+		li.setAttribute("id","newli")
+		li.innerHTML="新增节点"
+		ul.appendChild(li)
+		
+		// 删除节点
+		// var newli= document.getElementById("newli")
+		newli.parentNode.removeChild(newli)
+	</script>
+</html>

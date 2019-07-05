@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.classA{
+				color: yellow;
+			}
+			.classB{
+				font-size: 28px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="vue_box">
+			<p>点击数<span  :class="[{classA:dianji},class_new]">{{message}}</span>
+			<img :src="[dianji?src_url:src_urlnew]" style="width: 50px;" />
+			</p>
+			<button type="button" @click="to_dianji">点击</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var my_vue = new Vue({
+			el:"#vue_box",
+			data:{
+				message:"Niaho ",
+				dianji:0,//是否点击
+				src_url:"https://www.baidu.com/img/baidu_jgylogo3.gif",
+				src_urlnew:"https://img-bss.csdn.net/201962711431146_29499.jpg?imageMogr2/auto-orient/thumbnail/400x269!/format/jpg",
+				dianji_class:"classA",
+				class_new:"classB",
+			},
+			methods:{
+				to_dianji : function (){
+					this.dianji=1
+				}
+			}
+		});
+		
+	</script>
+</html>

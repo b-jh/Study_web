@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: #CCCCCC;
+			}
+
+			.img_box {
+				border: 1px solid red;
+				margin-top: 30px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.img_box div {
+				width: 32vw;
+				height: 32vw;
+				overflow: hidden;
+				border: 1px solid yellow;
+				position: relative;
+			}
+
+
+			.img_box div img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				overflow: hidden;
+				border: 1px solid aqua;
+			}
+
+			.img_box2 {
+				border: 1px solid red;
+				margin-top: 30px;
+				display: grid;
+				grid-template-columns: repeat(3, 32vw);
+				grid-auto-rows: 32vw;
+				justify-content: space-between;
+				align-content: center;
+			}
+	
+
+			.img_box2 div img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="img_box">
+			<div ><img  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562697212983&di=59e691bb9c1a516ead10837064c38a64&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa1f75abec65eaf98f13096354a4c7238cd8df04e4181f-TITew2_fw658"
+				 alt=""></div>
+			<div ><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562697212983&di=988b1cf7729d864f968503d7598addfb&imgtype=0&src=http%3A%2F%2Fs7.sinaimg.cn%2Forignal%2F48c435bdhbd9f581e14a6"
+				 alt=""></div>
+			<div ><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563292018&di=f67e6b5bd22f5359dc94e98b9b05bfcc&imgtype=jpg&er=1&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F8283247a903020ab628a1e82bf06a5b07325e02177b8a-aNkr1w_fw236"
+				 alt=""></div>
+		</div>
+
+		<div class="img_box2">
+			<div><img  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562697212983&di=59e691bb9c1a516ead10837064c38a64&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa1f75abec65eaf98f13096354a4c7238cd8df04e4181f-TITew2_fw658"
+				 alt=""></div>
+			<div ><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562697212983&di=988b1cf7729d864f968503d7598addfb&imgtype=0&src=http%3A%2F%2Fs7.sinaimg.cn%2Forignal%2F48c435bdhbd9f581e14a6"
+				 alt=""></div>
+			<div ><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563292018&di=f67e6b5bd22f5359dc94e98b9b05bfcc&imgtype=jpg&er=1&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F8283247a903020ab628a1e82bf06a5b07325e02177b8a-aNkr1w_fw236"
+				 alt=""></div>
+		</div>
+	</body>
+</html>

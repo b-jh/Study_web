@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+			<h1>Text类型</h1>
+		<h3 dfksdf="test1" id="info" title="node" lang="zh-cn" dir="ltr" class="rrr">document.nodeType=3</h3>
+		<ul  id="obj">XX
+			<li >文本节点</li>
+			<li >文本节点的方法</li>
+			<li id="ewe">创建文本节点createTextNode</li>ddd
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var obj = document.getElementById("obj");
+		// console.log(obj.childNodes[0])
+		obj.firstChild.appendData("hello")
+		console.log(obj.childNodes[1])
+			console.log(obj.firstElementChild)
+			
+			
+				var aa = document.getElementById("info");
+			console.log(aa.childNodes[0])
+			
+			var aaText=aa.firstChild;
+			console.log(aaText.nodeValue)
+			// 找父节点
+			console.log(aaText.parentNode)
+			
+			aaText.appendData("后面追加")
+			aaText.insertData(0,"前面追加")
+			
+			console.log(aaText.length)
+			
+			aaText.deleteData(0,1)
+			aaText.replaceData(0,3,"[这里被替换]")
+			
+			// 1个对象编程2个对象
+			aaText.splitText(10)
+			// 合并对象
+			aa.normalize()
+			
+			// 创造
+			var div = document.createElement("div")
+			div.id="tempInsert"
+			var textNode = document.createTextNode("hello")
+			div.appendChild(textNode)
+			
+			document.body.appendChild(div)
+			
+			// div.append("dfsfe")
+			
+			textNode.nodeValue="随时改"
+		
+	</script>
+</html>

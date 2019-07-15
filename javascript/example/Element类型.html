@@ -4,6 +4,21 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Element类型</title>
+		<style>
+			#big{
+				height: 200px;
+				width: 200px;
+				padding: 66px;
+				margin: 77px;
+				border:10px green solid;	
+				overflow: scroll;
+			}
+			#small{
+				height: 500px;
+				width: 500px;
+				background: red;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="big">
@@ -11,7 +26,7 @@
 					1
 			</div>
 		</div>
-		<h1>document类型</h1>
+		<h1>Element类型</h1>
 		<h3 dfksdf="test1" id="info" title="node" lang="zh-cn" dir="ltr" class="rrr">document.nodeType=1</h3>
 		<ul  id="obj">
 			<li class="title">Element获取元素属性</li>
@@ -37,7 +52,31 @@
 			aa.getAttribute("answer")
 			console.log(aa.getAttribute("answer"))
 			
-			var bb = document.getElementById(big)
+			var bb = document.getElementById("big")
+			// var bb = document.body
+			// 包括视口高+padding+border
 			console.log(bb.offsetHeight)
+			console.log(bb.offsetWidth)
+			
+			// 实际内容物的尺寸66*2+500;66+500
+			
+			console.log(bb.scrollHeight)
+			console.log(bb.scrollWidth)
+			
+			// 内容的大小红色区域
+			console.log(bb.clientHeight)
+			console.log(bb.clientWidth)
+			
+			// 窗口距离浏览器左边和上边
+			console.log(bb.offsetLeft)
+			console.log(bb.offsetTop)
+// 			滚动条
+			bb.scrollTop=100;
+			console.log(bb.scrollTop)
+			console.log(bb.scrollLeft)
+			
+			var obj = document.getElementById("obj")
+			var li=obj.getElementsByTagName("li")
+			console.log(li)
 	</script>
 </html>

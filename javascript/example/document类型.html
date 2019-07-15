@@ -1,16 +1,56 @@
 <!DOCTYPE html>
+<!-- 222 -->
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>document类型</title>
 	</head>
 	<body>
 		<h1>document类型</h1>
-		<h3 id="bb">DOM(Document Object MOdel)是针对HTML和XML文档的一个API(应用程序编程接口)</h3>
+		<h3 id="bb">document.nodeType=9</h3>
 		<ul id="box">
-			<li class="title">获取节点的方法</li>
-			<li >节点类型html.nodeType</li>
-			<li id="ewe">操作节点</li>
+			<li class="title">节点的概念</li>
+			<li >文档信息</li>
+			<li id="ewe">选择节点</li>
+				<li id="ewe">写入</li>
 		</ul>
 	</body>
+	<script type="text/javascript">
+		console.log(document.documentElement)
+		console.log(document.childNodes[2].childNodes[2])
+		// 9为html
+		console.log(document.nodeType)
+		console.log(document.firstChild)
+		console.log(document.head)
+		console.log(document.title)
+		document.title="999"
+		console.log(document.URL)
+		// 获取域名
+		console.log(document.domain)
+		// 获取来源
+		console.log(document.referrer)
+		// 写入
+		document.getElementsByTagName("")
+		document.getElementById("")
+		document.getElementsByClassName("")
+		
+		// 打印锚标签
+		console.log(document.anchors)
+		// 表单元素
+		console.log(document.forms)
+		console.log(document.images)
+		console.log(document.links)
+		
+		// 写入
+		document.write(new Date(),"<p>Hello</p>")
+		
+		// 加载完之后再执行
+		window.onload=function(){
+			console.log("加载完")
+		}
+		
+// 			window.onload=function(){
+// 			document.write("网站维护中")
+// 		}
+	</script>
 </html>
